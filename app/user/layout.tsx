@@ -23,10 +23,10 @@ export default function UserLayout({
 
    const navItems = [
     { name: "Dashboard", href: "/user/dashboard", icon: LayoutDashboard },
-    { name: "Verification", href: "/user/verifyy", icon: ShieldCheck },
-    { name: "Security", href: "/user/securityy", icon: Lock },
+    { name: "Verification", href: "/user/verify", icon: ShieldCheck },
+    //{ name: "Security", href: "/user/security", icon: Lock },
     //{ name: "Profile", href: "/user/profile", icon: User },
-    { name: "Documents", href: "/user/documentt", icon: FileText },
+    //{ name: "Documents", href: "/user/document", icon: FileText },
   ]
 
   const Sidebar = () => (
