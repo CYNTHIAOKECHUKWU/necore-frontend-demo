@@ -1,10 +1,10 @@
-import type { NextConfig } from "next";         
+import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {        
-  reactCompiler: true,
-
-  turbopack: {
-    root: process.cwd(),   
+const nextConfig: NextConfig = {
+  output: "export",
+  images: {
+    unoptimized: true,
   },
 };
-export default nextConfig; 
+
+export default nextConfig;
