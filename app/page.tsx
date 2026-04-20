@@ -6,13 +6,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function Home() {
+
+  //state
+  const [open, setOpen] = React.useState(false);
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#0D2440] text-white">
 
       {/* ===== Background Glow ===== */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute w-[600px] h-[600px] bg-[#2E5E99]/20 blur-[160px] rounded-full top-[-200px] left-[-200px] animate-pulse" />
-        <div className="absolute w-[500px] h-[500px] bg-[#2E5E99]/10 blur-[140px] rounded-full bottom-[-150px] right-[-150px] animate-pulse" />
+        <div className="absolute w-150 h-150 bg-[#2E5E99]/20 blur-[160px] rounded-full top-[-200px] left-[-200px] animate-pulse" />
+        <div className="absolute w-125 h-125 bg-[#2E5E99]/10 blur-[140px] rounded-full bottom-[-150px] right-[-150px] animate-pulse" />
       </div>
 
       {/* ===== Grid Overlay ===== */}
@@ -21,50 +25,55 @@ export default function Home() {
 
       {/* ================= HEADER ================= */}
 
-      <header className="w-full px-6 py-5 flex items-center justify-between max-w-7xl mx-auto">
+      <header className="w-full px-6 py-5 max-w-7xl mx-auto">
+        <div className="flex items-center justify-between">
 
-       
-        {/* NAV LINKS */}
-        <nav className="hidden md:flex items-center gap-8 text-sm text-slate-300">
+          {/* LOGO */}
+          <h1 className="text-lg font-semibold">NECore</h1>
 
-          <a
-            href="#product"
-            className="hover:text-white transition"
-          >
-            Product
-          </a>
+          {/* NAV LINKS (desktop) */}
+          <nav className="hidden md:flex items-center gap-8 text-sm text-slate-300">
+            <a href="#product" className="hover:text-white transition">Product</a>
+            <a href="#developers" className="hover:text-white transition">Developers</a>
+            <a href="#security" className="hover:text-white transition">Security</a>
+            <a href="#contact" className="hover:text-white transition">Contact</a>
+          </nav>
 
-          <a
-            href="#developers"
-            className="hover:text-white transition"
-          >
-            Developers
-          </a>
+          {/* RIGHT SIDE */}
+          <div className="flex items-center gap-3">
 
-          <a
-            href="#security"
-            className="hover:text-white transition"
-          >
-            Security
-          </a>
+            {/* DESKTOP CTA */}
+            <Button className="hidden md:inline-flex bg-[#2E5E99] hover:bg-[#244a7a] text-white rounded-full px-6">
+              Developer Docs
+            </Button>
 
-          <a
-            href="#contact"
-            className="hover:text-white transition"
-          >
-            Contact
-          </a>
+            {/* MOBILE MENU BUTTON */}
+            <button
+              onClick={() => setOpen(!open)}
+              className="md:hidden text-white text-2xl"
+            >
+              {open ? "✕" : "☰"}
+            </button>
 
-        </nav>
+          </div>
+        </div>
 
-        {/* CTA */}
-        <Button className="bg-[#2E5E99] hover:bg-[#244a7a] text-white rounded-full px-6">
-          Developer Docs
-        </Button>
+        {/* MOBILE MENU */}
+        {open && (
+          <div className="mt-6 flex flex-col gap-4 md:hidden text-sm text-slate-300">
 
+            <a href="#product" onClick={() => setOpen(false)}>Product</a>
+            <a href="#developers" onClick={() => setOpen(false)}>Developers</a>
+            <a href="#security" onClick={() => setOpen(false)}>Security</a>
+            <a href="#contact" onClick={() => setOpen(false)}>Contact</a>
+
+            <Button className="mt-4 bg-[#2E5E99] hover:bg-[#244a7a] text-white rounded-full">
+              Developer Docs
+            </Button>
+
+          </div>
+        )}
       </header>
-
-
 
       {/* ================= HERO ================= */}
 
@@ -73,7 +82,7 @@ export default function Home() {
         <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
           Verify Identity Once.
           <br />
-          <span className="bg-gradient-to-r from-[#2E5E99] via-cyan-400 to-[#2E5E99] bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-[#2E5E99] via-cyan-400 to-[#2E5E99] bg-clip-text text-transparent">
             Accepted Everywhere.
           </span>
         </h1>
@@ -286,7 +295,7 @@ export default function Home() {
 
         <div className="mt-10">
 
-          <Button className="px-10 py-3 rounded-full bg-gradient-to-r from-[#2E5E99] to-cyan-400 hover:opacity-90">
+          <Button className="px-10 py-3 rounded-full bg-linear-to-r from-[#2E5E99] to-cyan-400 hover:opacity-90">
             View Documentation
           </Button>
 
