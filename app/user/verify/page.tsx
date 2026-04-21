@@ -157,7 +157,7 @@ export default function VerificationFlow() {
         {/* STEP 1 */}
         {step === 1 && (
           <>
-           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4">
               {documents.map((doc) => (
                 <Card
                   key={doc.id}
