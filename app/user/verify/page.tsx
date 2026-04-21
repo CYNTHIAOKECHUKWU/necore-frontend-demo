@@ -145,7 +145,7 @@ export default function VerificationFlow() {
   }, [redirect, verificationId]);
 
   return (
-    <main className="min-h-screen bg-[#0F172A] px-6 py-14 text-white">
+    <main className="min-h-screen bg-[#0F172A] px-6 py-14 text-white overflow-x-hidden">
       <div className="max-w-3xl mx-auto space-y-10">
 
         <div className="text-center">
@@ -157,7 +157,7 @@ export default function VerificationFlow() {
         {/* STEP 1 */}
         {step === 1 && (
           <>
-            <div className="grid grid-cols-2 gap-4">
+           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {documents.map((doc) => (
                 <Card
                   key={doc.id}
@@ -186,11 +186,14 @@ export default function VerificationFlow() {
                   }
                 />
 
-                <div className="border-2 border-dashed border-slate-600 p-10 text-center cursor-pointer">
-                  <Upload className="mx-auto mb-3" />
-                  {file ? file.name : "Click to upload document"}
-                </div>
-              </label>
+               <div className="border-2 border-dashed border-slate-600 p-6 text-center cursor-pointer max-w-md mx-auto overflow-hidden">
+                 <Upload className="mx-auto mb-3" />
+
+            <p className="text-sm text-slate-300 truncate">
+           {file ? file.name : "Click to upload document"}
+          </p>
+        </div>
+        </label>
             )}
 
             <div className="mt-10 flex justify-center">
