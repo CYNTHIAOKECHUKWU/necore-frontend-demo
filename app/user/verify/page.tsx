@@ -186,14 +186,11 @@ export default function VerificationFlow() {
                   }
                 />
 
-               <div className="border-2 border-dashed border-slate-600 p-6 text-center cursor-pointer max-w-md mx-auto overflow-hidden">
-                 <Upload className="mx-auto mb-3" />
-
-            <p className="text-sm text-slate-300 truncate">
-           {file ? file.name : "Click to upload document"}
-          </p>
-        </div>
-        </label>
+               <div className="border-2 border-dashed border-slate-600 p-10 text-center cursor-pointer">
+             <Upload className="mx-auto mb-3" />
+            {file ? file.name : "Click to upload document"}
+          </div>
+         </label>
             )}
 
             <div className="mt-10 flex justify-center">
